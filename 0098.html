@@ -4,38 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>부자가 되는 길로 가기</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-        }
-        .btn-container {
-            text-align: center;
-        }
-        .btn-sms {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: #ffffff;
-            background-color: #007bff;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-        .btn-sms:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
-    <div class="btn-container">
-        <a class="btn-sms" href="sms:010-7277-0098?body=안녕하세요. 유튜브 보고 연락드립니다.">문자 메시지 보내기</a>
-    </div>
+    <script>
+        window.onload = function() {
+            var phoneNumber = "010-7277-0098";
+            var message = "안녕하세요. 유튜브 보고 연락드립니다.";
+            
+            var smsUrl = "sms:" + phoneNumber + "?body=" + encodeURIComponent(message);
+            
+            var newWindow = window.open(smsUrl, '_blank');
+            
+            if (!newWindow) {
+                window.location.href = smsUrl;
+            }
+        };
+    </script>
 </body>
 </html>
